@@ -66,24 +66,15 @@ task main(){
 	int speed = 50;
 
 	while(1){
-
-		int buttonVar = 1 - SensorValue(button);
-
-		while(buttonVar == 0){
-			if( SensorValue[sonic] < 15){
-				turnRight(speed);
-				wait(1);
-				moveForward(speed);
-				} else {
-				moveForward(speed);
-			}
-
-			if(SensorValue(button) == 1){
-				buttonVar = 1;
-				stopMotor(rightMotor);
-				stopMotor(leftMotor);
-				wait(1);
-			}
+		if( SensorValue[sonic] > 15){
+			moveForward(speed);
+			} else {
+			turnRight(speed);
+			wait(1);
+			moveForward(speed);
 		}
+
+
+
 	}
 }
